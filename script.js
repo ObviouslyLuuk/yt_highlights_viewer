@@ -79,15 +79,23 @@ video_elem.addEventListener("timeupdate", function() {
     handleTimeUpdate();
 });
 
-
+var repeats = 0;
 function handleTimeUpdate() {
     let video_object = Object.values(selected_videos)[idx];
     if (video_elem.currentTime > video_object.peak_time/1000 + PEAK_BOUNDS[1]) {
         // switch_video(1);
+
         // video_elem.pause();
+        
+        if (repeats >= 2) {
+            repeats = 0;
+            switch_video(1);
+            return;
+        }
         // Prevent controls from showing
         video_elem.controls = false;
         video_elem.currentTime = video_object.peak_time/1000 + PEAK_BOUNDS[0];
+        repeats += 1;
     }
 }
 video_elem.addEventListener("mouseover", function() {
