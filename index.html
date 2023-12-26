@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Video Player</title>
+
+    <style>
+        body {
+            --use-width: 90vw;
+            --font-size: 0.8rem;
+
+            background-color: #0f0f0f;
+            color: #fff;
+            font-family: 'Roboto', sans-serif;
+            font-size: var(--font-size);
+            line-height: 1.5;
+            margin: 0;
+            /* padding: 50px; */
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        video {
+            max-height: 60vh;
+            width: var(--use-width);
+            max-height: 50vh;
+            aspect-ratio: 16/9;
+            /* border-radius: 10px; */
+        }
+
+        #video-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            width: var(--use-width);
+        }
+
+        #info-top {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            justify-items: center;
+            align-items: center;
+            width: 100%;
+            padding: 20px;
+        }
+
+        #info-bottom {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            width: 100%;
+        }
+
+        #info-bottom-right {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            margin-left: 20px;
+            gap: 10px;
+        }
+
+        #rank-div {
+            font-size: calc(var(--font-size) * 2);
+            font-weight: bold;
+        }
+        #rank {
+            font-size: calc(var(--font-size) * 3) !important;
+        }
+
+        #viewcount-div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            /* font-size: calc(var(--font-size) * 1.5); */
+            color: #aaa;
+        }
+        #viewcount {
+            font-size: calc(var(--font-size) * 2) !important;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        #date-div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            /* font-size: calc(var(--font-size) * 1.5); */
+            color: #aaa;
+        }
+        #ago-date {
+            font-size: calc(var(--font-size) * 1.5);
+            font-weight: bold;
+            color: #fff;
+        }
+
+        #thumb-img {
+            width: calc(var(--use-width) / 3);
+            max-width: 350px;
+            aspect-ratio: 16/9;
+            border-radius: 10px;
+        }
+
+        #title-div {
+            /* font-size: calc(var(--font-size) * 1.2); */
+            font-weight: bold;
+        }
+
+        #channel-div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            /* font-size: calc(var(--font-size) * 0.8); */
+            color: #aaa;
+
+            border: 1px solid #fff;
+            border-radius: 100px;
+            padding: 5px 10px;
+        }
+
+        #channel-thumb-div {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #fff;
+            margin-right: 10px;
+        }
+
+        #btn-div {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            width: 100%;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        #prev-btn, #next-btn {
+            padding: 10px 50px;
+            border-radius: 10px;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+
+            background-color: #212121;
+            color: #fff;
+            opacity: 0.5;
+            transition: opacity 150ms ease-in-out;
+        }
+        button {
+            outline: none;
+        }
+        button:hover {
+            opacity: 1 !important;
+        }
+            
+    </style>
+</head>
+<body>
+    <video autoplay controls></video>
+    <div id="video-info">
+        <!-- rank, viewcount, upload date, thumbnail, Title, channel name, channel thumbnail -->
+        <div id="info-top">
+            <div id="rank-div"># <span id="rank"></span></div>
+            <div id="viewcount-div"><span id="viewcount"></span><span>views</span></div>
+            <div id="date-div">
+                <span id="ago-date">8 months ago</span>
+                <span id="upload-date">(26-04-2023)</span>
+            </div>
+        </div>
+        <div id="info-bottom">
+            <div id="thumb-div">
+                <img id="thumb-img">
+            </div>
+            <div id="info-bottom-right">
+                <div id="title-div">Video Title</div>
+                <div id="channel-div">
+                    <!-- <div id="channel-thumb-div"></div> -->
+                    <div id="channel-name-div">Channel Name</div>
+                </div>
+            </div>
+        </div>
+        <div id="btn-div">
+            <button id="prev-btn">Back</button>
+            <button id="next-btn">Next</button>
+        </div>
+    </div>
+</body>
+<script src="selected_videos.js"></script>
+<script src="script.js"></script>
+</html>
