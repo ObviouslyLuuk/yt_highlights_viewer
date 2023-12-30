@@ -70,6 +70,7 @@ function switch_video(change) {
     load_highlight(idx+change);
     video_elem.play();
     idx += change;
+    repeats = 0;
     window.history.pushState({}, document.title, "?idx=" + idx);
 }
 
@@ -88,7 +89,6 @@ function handleTimeUpdate() {
         // video_elem.pause();
         
         if (repeats >= 2) {
-            repeats = 0;
             switch_video(1);
             return;
         }
